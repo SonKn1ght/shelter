@@ -9,10 +9,10 @@ var gulp = require('gulp'),
 gulp.task('serve', function() {
     browserSync.init({
         server: {
-            baseDir: "./build"
+            baseDir: "./shelter"
         }
     });
-    browserSync.watch('build',browserSync.reload)
+    browserSync.watch('shelter',browserSync.reload)
 });
 
 gulp.task('sass', function () {
@@ -27,9 +27,9 @@ gulp.task('sass', function () {
       title: "stile"
     }))
     .pipe(gp.sourcemaps.write())
-    .pipe(gulp.dest('build/css/'))
+    .pipe(gulp.dest('shelter/'))
     .pipe(browserSync.reload({stream:true}))
-    .pipe(gulp.dest("build/css/"));
+    .pipe(gulp.dest("shelter/"));
 });
 
 
@@ -39,7 +39,7 @@ gulp.task("html", function () {
  .pipe(gp.posthtml([
  include()
  ]))
- .pipe(gulp.dest("build"));
+ .pipe(gulp.dest("shelter/"));
 });
 
 gulp.task('watch',function () {
@@ -58,5 +58,5 @@ gulp.task("sprite", function () {
       inlineSvg: true
     }))
    .pipe(gp.rename("sprite.svg"))
-   .pipe(gulp.dest("build/assets"));
+   .pipe(gulp.dest("shelter/assets"));
 });
