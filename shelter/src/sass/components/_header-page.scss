@@ -1,0 +1,45 @@
+.header-page {
+  position: absolute;
+  top: 61px;
+  left: calc(50% - 600px);
+}
+
+.header-page__wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+}
+
+.header-page__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.header-page__logo-title {
+  margin: 0 0 9px 0;
+  padding: 0 0 0 0px;
+
+  text-decoration: none;
+  @include font($size: 3.2rem, $height: 3.5rem, $spacing: 0.06em);
+  color: $color-primary;
+  opacity: 0.5;
+}
+
+.header-page__logo-subtitle {
+  margin: 0 0 0 0;
+  padding: 0 0 0 2px;
+
+  @extend %font-add;
+  text-decoration: none;
+  @include font($size: 1.3rem, $height: 1.5rem, $spacing: 0.1em);
+  color: $color-light-xl;
+}
+
+.header-page__navigation {
+  display: block;
+  padding: 0 2px 0 0;
+}
+
+

@@ -1,0 +1,21 @@
+.button {
+  @include reset-link;
+  display: inline-block;
+
+  box-sizing: border-box;
+  padding: 15px 45px;
+
+  @include font ($size: 1.7rem, $height: 2.2rem, $spacing: 0.06em);
+  color: $color-dark-xl;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+
+  &:hover {
+    background-color: $color-primary-light;
+    cursor: pointer;
+  }
+}
+
+

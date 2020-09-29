@@ -1,0 +1,50 @@
+.navigation {
+  padding: 0 0 0 0;
+
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+
+  @extend %font-add;
+  @include font ($size: 1.5rem, $height: 2.4rem, $spacing: 0)
+
+}
+
+.navigation__item {
+  padding: 0 17.5px;
+}
+
+.navigation__item:last-child {
+  padding: 0 0 0 18px;
+}
+.navigation__item:first-child {
+  padding: 0 17.5px 0 0;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: $color-light-l;
+
+  &:hover {
+    color: $color-light-s;
+  }
+}
+
+.navigation__link_active {
+  position: relative;
+  color: $color-light-s;
+  pointer-events: none;
+}
+
+.navigation__link_active:after {
+  content: '';
+
+  position: absolute;
+  bottom: -7px;
+  left: 0px;
+
+  width: 100%;
+  height: 3px;
+  background-color: $color-primary;
+}

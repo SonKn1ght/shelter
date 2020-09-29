@@ -1,0 +1,29 @@
+.start-screen {
+  background-color: $bg-color-reserve;
+  background-image: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+}
+
+.start-screen__wrapper {
+  display: flex;
+}
+
+.start-screen__content {
+  margin: 0 42px 0 0;
+  padding: 344px 0 0 0;
+  width: 460px;
+}
+
+.start-screen__title {
+  margin: 0 0 41px 0;
+  color: $color-light-xl;
+}
+
+.start-screen__subheading {
+  margin: 0 0 41px 0;
+
+  color: $color-light-l;
+}
+
+.start-screen__image {
+  padding: 180px 0 0 0;
+}
