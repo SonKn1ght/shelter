@@ -1,5 +1,8 @@
 .wrapper {
   //width: 62.5vw;
-  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 128rem;
+  padding: 0 4rem;
   margin: 0 auto;
 }

@@ -1,4 +1,5 @@
 .navigation {
+  width: 44.3rem;
   padding: 0 0 0 0;
 
   list-style: none;
@@ -12,15 +13,9 @@
 }
 
 .navigation__item {
-  padding: 0 17.5px;
+
 }
 
-.navigation__item:last-child {
-  padding: 0 0 0 18px;
-}
-.navigation__item:first-child {
-  padding: 0 17.5px 0 0;
-}
 
 .navigation__link {
   text-decoration: none;
@@ -41,7 +36,7 @@
   content: '';
 
   position: absolute;
-  bottom: -7px;
+  bottom: -0.7rem;
   left: 0px;
 
   width: 100%;

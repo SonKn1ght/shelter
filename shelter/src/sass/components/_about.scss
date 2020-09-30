@@ -3,11 +3,16 @@
 }
 
 .about__wrapper {
-  display: flex;
+  justify-content: start;
+}
+
+.about__img-wrapper {
+  margin: 8rem 12rem 10rem 17.5rem;
 }
 
 .about__img {
-  margin: 80px 120px 100px 175px;
+  display: block;
+  margin: 0 0 0 0;
 }
 
 .about__content {
@@ -15,11 +20,11 @@
 }
 
 .about__title {
-  width: 370px;
-  margin: 95px 0 24px 0;
+  max-width: 37rem;
+  margin: 9.5rem 0 2.4rem 0;
 }
 
 .about__text-content {
-  width: 430px;
-  margin: 0 0 25px 0;
+  max-width: 43rem;
+  margin: 0 0 2.5rem 0;
 }

@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content ="Webdev">
+    <meta name="description" content="Webdev">
     <title>Shelter</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="pages/main/style.css" rel="stylesheet">
   </head>
   <body>
 
     <div style="display:none">
-     <include src="build/assets/sprite.svg"></include>
+     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="SVG-arrow" viewBox="0 0 16 16">
+  <path fill="#444" d="M15 7v2H4v2L1 8l3-3v2z"></path>
+</symbol></svg>
     </div>
 
     <header class="header-page">
@@ -43,23 +45,26 @@
       <section class="start-screen">
         <div class="wrapper start-screen__wrapper">
           <div class="start-screen__content">
-            <h2 class="start-screen__title">Not only people<br> need a house</h2>
+            <h2 class="start-screen__title">Not only people need a house</h2>
             <p class="start-screen__subheading">
               We offer to give a chance to a little and nice puppy with an extremely
               wide and open heart. He or she will love you more than anybody else in
               the world, you will see!
             </p>
-            <button class="button">Make a friend</button>
+            <a href="#" class="button start-screen__button">Make a friend</a>
           </div>
-          <img src="assets/img/start-screen-puppy.png" width="698" height="728"
-               alt=puppy" class="start-screen__image">
+          <div class="start-screen__image-wrapper">
+            <img src="../../assets/image/start-screen-puppy.png" alt="puppy" class="start-screen__image">
+          </div>
+
         </div>
       </section>
 
       <section class="about">
         <div class="wrapper about__wrapper">
-          <img src="assets/img/about-pets.png" width="300" height="408"
-               alt="about pets" class="about__img">
+          <div class="about__img-wrapper">
+            <img src="../../assets/image/about-pets.png" alt="about pets" class="about__img">
+          </div>
           <div class="about__content">
             <h3 class="about__title">
               About the shelter “Cozy House”
@@ -79,6 +84,45 @@
               hardly ever leave them alone.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section class="pets">
+        <div class="wrapper pets__wrapper">
+          <h3 class="pets__title">
+            <span>Our friends who</span>
+            <span>are looking for a house</span>
+          </h3>
+          <div class="pets__slider slider">
+            <button class="slider__button-left button__navigation">
+              <svg class="arrow arrow__left" width="16" height="16">
+                <use xlink:href="#SVG-arrow"></use>
+              </svg>
+            </button>
+            <div class="slider__slide-wrapper">
+              <div class="pets__card">
+                <img src="../../assets/image/pets-katrine.png" alt="Cat katrine" class="pets__image">
+                <h4 class="pets_pet-name">Katrine</h4>
+                <button class="button button__secondary">Learn more</button>
+              </div>
+              <div class="pets__card">
+                <img src="../../assets/image/pets-jennifer.png" alt="Dog jennifer" class="pets__image">
+                <h4 class="pets_pet-name">Jennifer</h4>
+                <button class="button button__secondary">Learn more</button>
+              </div>
+              <div class="pets__card">
+                <img src="../../assets/image/pets-woody.png" alt="Dog woody" class="pets__image">
+                <h4 class="pets_pet-name">Woody</h4>
+                <button class="button button__secondary">Learn more</button>
+              </div>
+            </div>
+            <button class="slider__button-right button__navigation">
+              <svg class="slider__arrow__righ" width="16" height="16">
+                <use xlink:href="#SVG-arrow"></use>
+              </svg>
+            </button>
+          </div>
+            <a href="#" class="button">Get to know the rest</a>
         </div>
       </section>
 
