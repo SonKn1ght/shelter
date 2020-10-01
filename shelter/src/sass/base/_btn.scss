@@ -36,7 +36,7 @@
   width: 5.2rem;
   height: 5.2rem;
 
-  background-color: $color-light-xl;
+  background-color: transparent;
   border: 2px solid $color-primary;
   border-radius: 10rem;
 
@@ -54,7 +54,7 @@
     border: 2px solid $color-dark-s;
     &:hover {
       border: 2px solid $color-dark-s;
-      background: $color-light-xl;
+      background: transparent;
     }
   }
 }

@@ -7,10 +7,10 @@
 
 .slider__slide-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 91.33%;
   padding: 0 5.3rem;
-  //max-width: 99rem;
 }
 
 .slider__arrow__righ {
