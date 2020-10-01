@@ -1,0 +1,64 @@
+.donation {
+  background-color: $color-light-l;
+}
+
+.donation__wrapper {
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 18.3rem 10.1em 18.2rem;
+}
+
+.donation__img-wrapper {
+  display: flex;
+  align-items: start;
+  margin: 9.2rem 3rem 0 0;
+}
+
+.donation__image {
+  display: block;
+  margin: 0 0 0 0;
+}
+
+.donation__content {
+  width: 38rem;
+}
+
+.donation__title {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 8.2rem 0 1.9rem 0;
+}
+
+.donation__subtitle {
+  margin: 0 0 2rem 0;
+}
+
+.donation__credit-card {
+  position: relative;
+  padding: 1rem 1.5rem 1rem 6rem;
+  margin: 0 0 2rem 0;
+  border-radius: 9px;
+
+  &:before {
+    content: '';
+
+    position: absolute;
+    left: 15px;
+
+    width: 30px;
+    height: 23px;
+    background-image: url(../../assets/image/credit-card.svg);
+    //background-color: red;
+  }
+
+  & h4 {
+    margin: 0 0 0 0;
+  }
+}
+
+.donation__info {
+  margin: 0 0 0 0;
+
+  color: $color-dark-m;
+}
