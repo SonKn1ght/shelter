@@ -28,6 +28,10 @@
   text-align: center;
   background-color: $color-light-s;
   border-radius: 9px 9px 9px 9px;
+
+  &:hover {
+    background-color: $color-light-xl;
+  }
 }
 
 .pets__image {

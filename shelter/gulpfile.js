@@ -13,7 +13,7 @@ gulp.task('serve', function() {
         index: "/pages/main/main.html"
       }
     });
-    browserSync.watch('/pages/main/main',browserSync.reload)
+    browserSync.watch('/shelter',browserSync.reload)
 });
 
 
@@ -54,7 +54,6 @@ gulp.task('watch',function () {
 gulp.task('default',gulp.series(
   gulp.parallel('sass', 'html'),
   gulp.parallel('watch', 'serve')
-
 ));
 
 gulp.task("sprite", function () {

@@ -3,11 +3,13 @@
 }
 
 .about__wrapper {
-  justify-content: start;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 21.5rem;
 }
 
 .about__img-wrapper {
-  margin: 8rem 12rem 10rem 17.5rem;
+  margin: 8rem 12rem 10rem 0;
 }
 
 .about__img {
