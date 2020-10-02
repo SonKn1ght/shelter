@@ -1,0 +1,52 @@
+.header-page {
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  top: 6.1rem;
+
+  &_pets {
+    position: sticky;
+    top: 0;
+    padding: 3.2rem 0;
+    background-color: $color-light-xl;
+  }
+}
+
+.header-page__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.header-page__logo-title {
+  margin: 0 0 0.9rem 0;
+  padding: 0 0 0 0;
+
+  text-decoration: none;
+  @include font($size: 3.2rem, $height: 3.5rem, $spacing: 0.06em);
+  color: $color-primary;
+
+  &_pets {
+    color: $color-dark-l;
+  }
+}
+
+.header-page__logo-subtitle {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0.2rem;
+
+  @extend %font-add;
+  text-decoration: none;
+  @include font($size: 1.3rem, $height: 1.5rem, $spacing: 0.1em);
+  color: $color-light-xl;
+
+  &_pets {
+    color: $color-dark-3xl;
+  }
+}
+
+.header-page__navigation {
+}
+
+

@@ -1,0 +1,65 @@
+.footer-page {
+  background: url(../../assets/image/noise_transparent.png),
+  radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+  #211F20;
+}
+
+.footer-page__wrapper {
+  flex-wrap: wrap;
+}
+
+.footer-page__contacts-column-first {
+  width: 28rem;
+  padding: 5.7rem 0 0 0;
+}
+
+.footer-page__title-first {
+  margin: 0 0 3.9rem 0;
+  color: $color-light-xl;
+}
+
+.footer-page__email {
+  @include footer-link;
+
+  margin: 0 0 4rem 0;
+}
+
+.footer-page__phone {
+  @include footer-link;
+}
+
+.footer-page__icon {
+  margin: 0 2rem 0 0;
+  fill: $color-primary;
+}
+
+.footer-page__contacts-column-second {
+  width: 30.2rem;
+  padding: 5.7rem 0 0 0;
+}
+
+.footer-page__title-second {
+  margin: 0 0 3.3rem 0;
+  color: $color-light-xl;
+}
+
+.footer-page__location {
+  @include footer-link;
+  flex-wrap: wrap;
+  width: 30.2rem;
+  &:nth-child(2) {
+    margin: 0 0 3.2rem 0;
+  }
+}
+
+.footer-page__image-wrapper {
+  width: 30rem;
+  margin: 4rem 0 0 0;
+}
+
+.footer-page__image {
+  display: block;
+  margin: 0 0 0 0;
+}
+
+

@@ -1,0 +1,30 @@
+@import 'base/normalize';
+
+//Abstract
+@import 'abstract/variables';
+@import 'abstract/mixins';
+@import 'abstract/placeholders';
+
+//Base
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/btn';
+
+
+//Layouts
+@import 'layouts/wrapper';
+
+
+// Components
+@import 'components/header-page';
+@import 'components/navigarion';
+@import 'components/pets';
+@import 'components/slider';
+@import 'components/footer-page';
+
+
+
+
+
+
+

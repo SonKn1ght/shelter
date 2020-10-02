@@ -1,0 +1,46 @@
+.pets {
+  padding: 8.1rem 0 0 0;
+  background-color: $color-light-l;
+}
+
+.pets__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4rem 10rem;
+}
+
+.pets__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40.2rem;
+  margin: 0 auto 5.9rem;
+  padding: 0 0 0 2px;
+}
+
+.pets__slider {
+  margin: 0 0 6rem 0;
+}
+
+.pets__card {
+  padding: 0 0 30px 0;
+  text-align: center;
+  background-color: $color-light-s;
+  border-radius: 9px 9px 9px 9px;
+
+  &:hover {
+    background-color: $color-light-xl;
+  }
+}
+
+.pets__image {
+  margin: 0 0 2.8rem 0;
+
+}
+
+.pets_pet-name {
+  margin: 0 0 3rem 0;
+  padding: 0 0 0 0.2rem;
+  color: $color-dark-l;
+}
