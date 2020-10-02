@@ -32,6 +32,7 @@ gulp.task('sass', function () {
     .pipe(gp.sourcemaps.write())
     .pipe(gulp.dest('shelter/pages/main/'))
     .pipe(browserSync.reload({stream:true}))
+    // .on('end',browserSync.reload);
 });
 
 
@@ -43,12 +44,13 @@ gulp.task("html", function () {
  ]))
  .pipe(gulp.dest("shelter/pages/main/"))
  .pipe(browserSync.reload({stream:true}));
-// .on('end',browserSync.reload);
+ // .on('end',browserSync.reload);
 });
 
-gulp.task('watch',function () {
+gulp.task('watch', (done) => {
   gulp.watch('src/sass/**/*.scss',gulp.series('sass'));
   gulp.watch('src/**/*.html',gulp.series('html'));
+  done();
 });
 
 gulp.task('default',gulp.series(

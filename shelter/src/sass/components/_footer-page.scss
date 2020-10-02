@@ -1,81 +1,65 @@
 .footer-page {
-  display: flex;
-  min-height: 185px;
-  padding: 0 155px 0 160px;
-  background-color: $black;
+  background: url(../../assets/image/noise_transparent.png),
+  radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+  #211F20;
 }
 
-.footer-page__additional-menu {
+.footer-page__wrapper {
+  flex-wrap: wrap;
+}
+
+.footer-page__contacts-column-first {
+  width: 28rem;
+  padding: 5.7rem 0 0 0;
+}
+
+.footer-page__title-first {
+  margin: 0 0 3.9rem 0;
+  color: $color-light-xl;
+}
+
+.footer-page__email {
+  @include footer-link;
+
+  margin: 0 0 4rem 0;
+}
+
+.footer-page__phone {
+  @include footer-link;
+}
+
+.footer-page__icon {
+  margin: 0 2rem 0 0;
+  fill: $color-primary;
+}
+
+.footer-page__contacts-column-second {
+  width: 30.2rem;
+  padding: 5.7rem 0 0 0;
+}
+
+.footer-page__title-second {
+  margin: 0 0 3.3rem 0;
+  color: $color-light-xl;
+}
+
+.footer-page__location {
+  @include footer-link;
+  flex-wrap: wrap;
+  width: 30.2rem;
+  &:nth-child(2) {
+    margin: 0 0 3.2rem 0;
+  }
+}
+
+.footer-page__image-wrapper {
+  width: 30rem;
+  margin: 4rem 0 0 0;
+}
+
+.footer-page__image {
+  display: block;
   margin: 0 0 0 0;
-  padding: 0 0 0 0;
 }
 
-.footer-page__list {
-  display: flex;
-  justify-content: space-between;
-  width: 236px;
-  margin: 0 382px 0 0;
-  padding: 74px 0 0 0;
 
-  list-style: none;
-}
-
-.footer-page__nav-item {
-  position: relative;
-}
-
-.footer-page__nav-item:after {
-  content: '';
-
-  position: absolute;
-  right: -21px;
-  top: 7px;
-  width: 1px;
-  height: 8px;
-  background-color: $wetAsphalt;
-}
-
-.footer-page__nav-item:last-child:after {
-  display: none;
-}
-
-.footer-page__nav-link {
-  font-family: $fontFamily, $fontFamilyReserve;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19.6px;
-
-  text-decoration: none;
-  color: $white;
-}
-
-.footer-page__nav-link:hover {
-  opacity: 0.5;
-}
-
-.footer-page__logo {
-  margin: 0 449px 0 0;
-  padding: 60px 0 74px 0;
-}
-
-.footer-page__logo:hover {
-  opacity: 0.5;
-}
-
-.footer-page__link-logo {
-  fill: $white;
-}
-
-.footer-page__copyright {
-  width: 170px;
-  padding: 60px 0 0 0;
-
-  font-family: $fontFamily, $fontFamilyReserve;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-
-  color: $pearlDarkGray;
-}
