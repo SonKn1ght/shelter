@@ -1,0 +1,35 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 34rem;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  list-style: none;
+}
+
+.pagination__item {
+  @extend .button__navigation;
+  display: flex;
+}
+
+.pagination__item_active {
+  background-color: $color-primary;
+  pointer-events: none;
+}
+
+.pagination__link {
+  @extend h4;
+  margin: auto;
+  text-decoration: none;
+  color: $color-dark-3xl;
+}
+
+
+.pagination__item_disabled {
+  border: $color-dark-s solid 2px;
+  pointer-events: none;
+
+  & a {
+    color: $color-dark-s;
+  }
+}

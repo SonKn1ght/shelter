@@ -1,6 +1,7 @@
 .pets {
   padding: 8.1rem 0 0 0;
   background-color: $color-light-l;
+  //background-color: gray;
 }
 
 .pets__wrapper {
@@ -17,6 +18,12 @@
   width: 40.2rem;
   margin: 0 auto 5.9rem;
   padding: 0 0 0 2px;
+
+  &_pets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .pets__slider {
@@ -43,4 +50,13 @@
   margin: 0 0 3rem 0;
   padding: 0 0 0 0.2rem;
   color: $color-dark-l;
+}
+
+.pets__cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 3rem;
+  padding: 0 0 1.5rem 0;
+  margin: 0 0 4.4rem 0;
 }
