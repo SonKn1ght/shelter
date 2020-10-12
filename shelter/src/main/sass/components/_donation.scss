@@ -4,14 +4,14 @@
 
 .donation__wrapper {
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 18.3rem 10.1em 18.2rem;
+  justify-content: space-between;
+  padding: 0 18.2rem 10em 18.3rem;
 }
 
 .donation__img-wrapper {
   display: flex;
   align-items: start;
-  margin: 9.2rem 3rem 0 0;
+  margin: 9.1rem 0 0 0;
 }
 
 .donation__image {
@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin: 8.2rem 0 1.9rem 0;
+  margin: 8.1rem 0 1.9rem 0;
 }
 
 .donation__subtitle {

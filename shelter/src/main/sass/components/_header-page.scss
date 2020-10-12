@@ -3,6 +3,13 @@
   position: absolute;
   width: 100%;
   top: 6.1rem;
+
+  @include media-tablet {
+    top: 3.1rem;
+  }
+  @include media-mobile {
+
+  }
 }
 
 .header-page__logo {
@@ -31,7 +38,19 @@
   color: $color-light-xl;
 }
 
+.header__hamburger {
+  display: none;
+
+  @include media-mobile {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .header-page__navigation {
+  @include media-mobile {
+    display: none;
+  }
 }
 
 
