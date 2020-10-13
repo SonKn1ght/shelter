@@ -6,12 +6,28 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 18.2rem 10em 18.3rem;
+
+  @include media-tablet {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 13.1rem 10em 13rem;
+  }
+
+  @include media-mobile {
+    padding: 0 1rem 4.2em 1rem;
+  }
 }
 
 .donation__img-wrapper {
   display: flex;
   align-items: start;
   margin: 9.1rem 0 0 0;
+  @include media-tablet {
+    margin: 0 0 0 0;
+  }
+  @include media-mobile {
+    width: 262px;
+  }
 }
 
 .donation__image {
@@ -21,6 +37,14 @@
 
 .donation__content {
   width: 38rem;
+  @include media-tablet {
+    margin: 0 0 6rem 0;
+  }
+  @include media-mobile {
+    width: 30rem;
+    margin: 0 0 4.2rem 0;
+    text-align: center;
+  }
 }
 
 .donation__title {
@@ -28,10 +52,22 @@
   flex-direction: column;
   align-items: start;
   margin: 8.1rem 0 1.9rem 0;
+
+  @include media-mobile {
+    margin: 4.2rem 0 2rem 0;
+    & span {
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 
 .donation__subtitle {
   margin: 0 0 2rem 0;
+  @include media-mobile {
+    font-family: 'ArialMT', Arial, sans-serif;
+    @include font($size: 1.5rem, $height: 2.4rem);
+  }
 }
 
 .donation__credit-card {
@@ -49,11 +85,21 @@
     width: 30px;
     height: 23px;
     background-image: url(../../assets/image/credit-card.svg);
-    //background-color: red;
+
+    @include media-mobile {
+      top: 10px;
+    }
+  }
+
+  @include media-mobile {
+    padding: 1.3rem 1.5rem 1.3rem 6rem;
   }
 
   & h4 {
     margin: 0 0 0 0;
+    @include media-mobile {
+      @include font($size: 1.5rem, $height: 1.7rem, $spacing: 0.06em);
+    }
   }
 }
 
@@ -61,4 +107,9 @@
   margin: 0 0 0 0;
 
   color: $color-dark-m;
+
+  @include media-mobile {
+    text-align: justify;
+    margin: 0 1rem;
+  }
 }
