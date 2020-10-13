@@ -1,11 +1,23 @@
 .help {
   padding: 8.1rem 0 4.5rem 0;
+
+  @include media-mobile {
+    padding: 4.2rem 0 1.2rem 0;
+  }
 }
 
 .help__wrapper {
   padding: 0 6.7rem;
   flex-direction: column;
   align-items: center;
+
+  @include media-tablet {
+    //padding: 0 3.85rem;
+  }
+
+  @include media-mobile {
+    padding: 0 1rem;
+  }
 }
 
 .help__title {
@@ -14,6 +26,11 @@
   padding: 0 0 0 0.2rem;
 
   text-align: center;
+
+  @include media-mobile {
+    width: 23rem;
+    margin: 0 0 4.2rem 0;
+  }
 }
 
 .help__list {
@@ -25,11 +42,35 @@
   margin: 0 0 0 0;
 
   list-style: none;
+
+  @include media-tablet {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 55px;
+    justify-items: center;
+  }
+
+  @include media-mobile {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
 }
 
 .help__item {
-  padding: 0 5.97rem ;
+  padding: 0 5.97rem;
   margin: 0 0 5.5rem;
+
+  @include media-tablet {
+    width: 170px;
+    padding: 0 0;
+    margin: 0 0 5.5rem;
+  }
+
+  @include media-mobile {
+    width: 130px;
+    margin: 0 0 3rem;
+  }
 }
 
 .help__image {
@@ -37,10 +78,19 @@
   width: 6rem;
   height: 6rem;
   margin: 0 auto 3rem;
+
+  @include media-mobile {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 2rem;
+  }
 }
 
 .help__subtitle {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   text-align: center;
+  @include media-mobile {
+    @include font($size: 1.5rem, $height: 1.7rem, $spacing: 0.06em);
+  }
 }
