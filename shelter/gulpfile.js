@@ -121,5 +121,5 @@ gulp.task("sprite", function () {
       inlineSvg: true
     }))
    .pipe(gp.rename("sprite.svg"))
-   .pipe(gulp.dest("shelter/assets/image"));
+   .pipe(gulp.dest("shelter/assets/images"));
 });

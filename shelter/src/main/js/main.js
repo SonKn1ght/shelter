@@ -1,4 +1,8 @@
-"use strict";
+import Slider from "./slider";
+import {getRandomPets} from "./mock";
+
+const slider = new Slider();
+slider.init();
 
 const headerPage = document.querySelector(`.header-page`);
 const hamburger = headerPage.querySelector(`.header__hamburger`);
@@ -7,7 +11,6 @@ const headerPageWrapper = headerPage.querySelector(`.header-page__wrapper`);
 const navigationLinkActive = headerPage.querySelector(`.navigation__item .navigation__link_active`);
 
 const modalOverlay = document.querySelector(`.modal-overlay`);
-const body = document.querySelector(`body`);
 
 const switchMenu = () => {
   hamburger.classList.toggle(`hamburger_rotate`);

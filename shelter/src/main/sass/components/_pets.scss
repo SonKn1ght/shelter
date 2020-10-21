@@ -55,6 +55,14 @@
   &:hover {
     background-color: $color-light-xl;
   }
+
+  @include media-tablet {
+    margin: 0 40px 0 0;
+  }
+
+  @include media-mobile {
+
+  }
 }
 
 .pets__image {
