@@ -1,0 +1,17 @@
+@keyframes rotateOn90deg {
+  0% {
+    transform: rotate(0deg); /*Поворот на 30 градусов против часовой стрелки*/
+  }
+  //50%{
+  //  transform: rotate(45deg); /*Поворот на 30 градусов по часовой стрелке*/
+  //}
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+
+@keyframes slide-in {
+  0% {transform: translateX(400px);}
+  100% {transform: translateX(0);}
+}

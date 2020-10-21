@@ -8,7 +8,18 @@
 
 
   @extend %font-add;
-  @include font ($size: 1.5rem, $height: 2.4rem, $spacing: 0)
+  @include font ($size: 1.5rem, $height: 2.4rem, $spacing: 0);
+
+  @include media-mobile {
+    width: 320px;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+
+    margin: 0 0 0 0;
+    padding: 24.8rem 0 0 0;
+    @include font ($size: 3.2rem, $height: 5.1rem, $spacing: 0);
+  }
 
 }
 
@@ -30,6 +41,11 @@
   position: relative;
   color: $color-light-s;
   pointer-events: none;
+  @include media-mobile {
+    pointer-events: auto;
+    display: block;
+    min-height: 5.4rem;
+  }
 }
 
 .navigation__link_active:after {
@@ -42,4 +58,8 @@
   width: 100%;
   height: 3px;
   background-color: $color-primary;
+
+  @include media-mobile {
+    bottom: 0.1rem;
+  }
 }

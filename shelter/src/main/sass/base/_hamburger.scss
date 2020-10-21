@@ -1,5 +1,9 @@
 .hamburger {
+  transition: 1s;
 
+  @include media-mobile {
+    z-index: 3;
+  }
 }
 
 .hamburger__line {
@@ -29,3 +33,8 @@
     background-color: $color-primary;
   }
 }
+
+.hamburger_rotate {
+  transform: rotate(90deg);
+}
+

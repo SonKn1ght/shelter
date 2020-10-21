@@ -77,3 +77,10 @@ p {
   @include font($size: 1.2rem, $height: 1.8rem, $spacing: normal, $weight: 400, $style: italic  );
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.not-scroll {
+  overflow: hidden;
+}
