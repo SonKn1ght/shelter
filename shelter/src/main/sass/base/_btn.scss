@@ -27,7 +27,7 @@
     background-color: $color-light-s;
 
     &:hover {
-      border: 2px solid $color-light-xl;
+      border: 2px solid $color-light-s;
     }
   }
 }
@@ -46,7 +46,7 @@
 
   &:hover {
     border: none;
-    background: $color-primary-light;
+    background-color: $color-primary-light;
   }
 
   &_disable {

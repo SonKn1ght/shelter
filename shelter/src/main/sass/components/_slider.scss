@@ -5,10 +5,12 @@
 
   width: 100%;
   @include media-mobile {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    justify-items: center;
-    row-gap: 2rem;
+    width: 300px;
+    flex-wrap: wrap;
+
+    row-gap: 20px;
+    //flex-direction: column;
+
   }
 
 }
@@ -53,20 +55,19 @@
 
 .slider__container_hide {
   opacity: 0;
-  //transform: scale(0);
 }
 
 .slider__button-left {
   @include media-mobile {
     order: 2;
-    margin: 0 0 0 18px;
+    margin: 0 0 0 58px;
   }
 }
 
 .slider__button-right {
   @include media-mobile {
     order: 3;
-    margin: 0 18px 0 0px;
+    margin: 0 58px 0 0px;
   }
 }
 

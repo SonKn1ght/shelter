@@ -41,7 +41,7 @@
     margin: 0 0 6rem 0;
   }
   @include media-mobile {
-    width: 30rem;
+    width: 100%;
     margin: 0 0 4.2rem 0;
     text-align: center;
   }
@@ -84,7 +84,7 @@
 
     width: 30px;
     height: 23px;
-    background-image: url(../../assets/image/credit-card.svg);
+    background-image: url(../../assets/images/credit-card.svg);
 
     @include media-mobile {
       top: 10px;
@@ -109,6 +109,7 @@
   color: $color-dark-m;
 
   @include media-mobile {
+    width: auto;
     text-align: justify;
     margin: 0 1rem;
   }

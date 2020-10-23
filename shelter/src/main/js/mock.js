@@ -89,7 +89,9 @@ const petsJson = `[
   }
 ]`
 
-const pets = JSON.parse(petsJson);
+let nameCurrentPets = [`Katrine`, `Jennifer`, `Woody`];
+
+export const pets = JSON.parse(petsJson);
 
 const shuffleArray = (array) => {
   const mixedArray = array.slice();
@@ -102,7 +104,22 @@ const shuffleArray = (array) => {
   return mixedArray;
 };
 
-export const getRandomPets = (numberStart, numberEnd) => {
-  return shuffleArray(pets).slice(numberStart, numberEnd)
+export const getRandomPets = (numberEnd) => {
+
+  // убираем из данных питомцев отрисованных на странице
+  let newPets = pets.filter((element) => {
+    return !nameCurrentPets.includes(element.name);
+  });
+
+  // выдаем псевдослучайных питомцев в требуемом количестве (1, 2, 3) в зависимости от разрешения экрана =Ю см. где вызывается функция
+  const randomPets = shuffleArray(newPets).slice(0, numberEnd);
+
+  // через замыкание сохраняем список питомцев отрисовываемых на странице во внешнюю переменную
+  nameCurrentPets = randomPets.reduce((acc, current) => {
+    acc.push(current.name);
+    return acc;
+  }, [])
+
+  return randomPets;
 };
 

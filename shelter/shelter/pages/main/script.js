@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const slider = new _slider__WEBPACK_IMPORTED_MODULE_0__["default"]();
+const slider = new _slider__WEBPACK_IMPORTED_MODULE_0__["default"](_mock__WEBPACK_IMPORTED_MODULE_1__["pets"]);
 slider.init();
 
 const headerPage = document.querySelector(`.header-page`);
@@ -109,13 +109,17 @@ const headerPageNavigation = headerPage.querySelector(`.header-page__navigation`
 const headerPageWrapper = headerPage.querySelector(`.header-page__wrapper`);
 const navigationLinkActive = headerPage.querySelector(`.navigation__item .navigation__link_active`);
 
+const body = document.querySelector(`body`);
+
 const modalOverlay = document.querySelector(`.modal-overlay`);
 
 const switchMenu = () => {
+  body.classList.toggle(`not-scroll`);
   hamburger.classList.toggle(`hamburger_rotate`);
   modalOverlay.classList.toggle(`modal-show`);
   headerPageWrapper.classList.toggle(`header-page__wrapper_mobile-active`);
-  headerPageNavigation.classList.toggle(`header-page__navigation_show`)
+  headerPageNavigation.classList.toggle(`header-page__navigation_show`);
+
 }
 
 hamburger.addEventListener('click', () => {
@@ -142,11 +146,12 @@ hamburger.addEventListener('click', () => {
 /*!*****************************!*\
   !*** ./src/main/js/mock.js ***!
   \*****************************/
-/*! exports provided: getRandomPets */
+/*! exports provided: pets, getRandomPets */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pets", function() { return pets; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRandomPets", function() { return getRandomPets; });
 const petsJson = `[
   {
@@ -239,6 +244,8 @@ const petsJson = `[
   }
 ]`
 
+let nameCurrentPets = [`Katrine`, `Jennifer`, `Woody`];
+
 const pets = JSON.parse(petsJson);
 
 const shuffleArray = (array) => {
@@ -252,8 +259,23 @@ const shuffleArray = (array) => {
   return mixedArray;
 };
 
-const getRandomPets = (numberStart, numberEnd) => {
-  return shuffleArray(pets).slice(numberStart, numberEnd)
+const getRandomPets = (numberEnd) => {
+
+  // убираем из данных питомцев отрисованных на странице
+  let newPets = pets.filter((element) => {
+    return !nameCurrentPets.includes(element.name);
+  });
+
+  // выдаем псевдослучайных питомцев в требуемом количестве (1, 2, 3) в зависимости от разрешения экрана =Ю см. где вызывается функция
+  const randomPets = shuffleArray(newPets).slice(0, numberEnd);
+
+  // через замыкание сохраняем список питомцев отрисовываемых на странице во внешнюю переменную
+  nameCurrentPets = randomPets.reduce((acc, current) => {
+    acc.push(current.name);
+    return acc;
+  }, [])
+
+  return randomPets;
 };
 
 
@@ -273,51 +295,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mock */ "./src/main/js/mock.js");
 
 
-const twoSlide = `<div class="pets__card">
-                  <img
-                    src="../../assets/image/pets-katrine.png"
-                    alt="Cat katrine"
-                    class="pets__image"
-                  >
-                  <h4 class="pets_pet-name">Katrine</h4>
-                  <button class="button button__secondary">Learn more</button>
-                </div>
-<div class="pets__card">
-                  <img
-                    src="../../assets/image/pets-woody.png"
-                    alt="Dog woody"
-                    class="pets__image"
-                  >
-                  <h4 class="pets_pet-name">Woody</h4>
-                  <button class="button button__secondary">Learn more</button>
-                </div>
-<div class="pets__card">
-                  <img
-                    src="../../assets/image/pets-jennifer.png"
-                    alt="Dog jennifer"
-                    class="pets__image"
-                  >
-                  <h4 class="pets_pet-name">Jennifer</h4>
-                  <button class="button button__secondary">Learn more</button>
-                </div>`;
-
-function left() {
-  this._sliderContainer.classList.remove(`slider__container_left`);
-  this._sliderContainer.innerHTML = twoSlide;
-}
-
 
 class Slider {
-  constructor() {
+  constructor(petsList) {
+    this._petsList = petsList
+
     this._isEnable = true;
     this._slider = document.querySelector(`.slider`);
     this._sliderButtonLeft = this._slider.querySelector(`.slider__button-left`);
     this._sliderButtonRight = this._slider.querySelector(`.slider__button-right`);
     this._sliderContainer = this._slider.querySelector(`.slider__container`);
+    this._petsPopup = document.querySelector(`.pets-popup`);
+    this._petsPopupOverlay = document.querySelector(`.pets-popup__overlay`);
+
+    this._body = document.querySelector(`body`);
+
   }
 
   init() {
     this._setHandlers();
+    this._setPopupHandler();
+
+    // первые три слайда размеченными лежат в htmle
   }
 
   _setHandlers() {
@@ -325,7 +324,7 @@ class Slider {
       if (this._isEnable) {
         this._sliderContainer.classList.add(`slider__container_hide`);
         setTimeout(() => {
-          this._sliderContainer.innerHTML = this._getTemplate();
+          this._sliderContainer.innerHTML = this._getTemplateSlide();
           this._sliderContainer.classList.remove(`slider__container_hide`)
         }, 500);
       }
@@ -335,7 +334,7 @@ class Slider {
       if (this._isEnable) {
         this._sliderContainer.classList.add(`slider__container_hide`);
         setTimeout(() => {
-          this._sliderContainer.innerHTML = this._getTemplate();
+          this._sliderContainer.innerHTML = this._getTemplateSlide();
           this._sliderContainer.classList.remove(`slider__container_hide`)
         }, 500);
 
@@ -347,10 +346,26 @@ class Slider {
     this._sliderContainer.innerHTML = ``;
   }
 
-  _getTemplate() {
-    this._pets = Object(_mock__WEBPACK_IMPORTED_MODULE_0__["getRandomPets"])(0, 3);
-    console.log(this._pets)
+  _getTemplateSlide() {
+    let countPet;
 
+    // отдаем количество слайдов в зависимости от разрешения экрана,
+    // есть подлаг => если увеличивать разрешение экрана и пройти брекпоинт снизу вверх автоматической перерисовки слайдера нет, но при нажатии кнопки будет выдано правильное количество питомцев.
+    if (this._body.offsetWidth >= 1280) {
+      countPet = 3;
+    }
+
+    if (this._body.offsetWidth < 1280 && this._body.offsetWidth >= 768) {
+      countPet = 2;
+    }
+
+    if (this._body.offsetWidth < 768) {
+      countPet = 1;
+    }
+  // выдача уницальных питомцев при каждом пролистывании реализована в mock
+    this._pets = Object(_mock__WEBPACK_IMPORTED_MODULE_0__["getRandomPets"])(countPet);
+
+  // проходим по массиву выдаем нужную разметку строкой для её передачи в отрисовку
     return this._pets.reduce((acc, current) => {
       return acc + `
       <div class="pets__card">
@@ -360,10 +375,109 @@ class Slider {
           class="pets__image"
         >
         <h4 class="pets_pet-name">${current.name}</h4>
-        <button class="button button__secondary">Learn more</button>
+        <button
+        class="button button__secondary"
+        data-name="${current.name}"
+        >
+          Learn more
+        </button>
       </div>
       `
     }, ``)
+  }
+
+  _getTemplatePopup(pet) {
+    const {
+      name,
+      age,
+      breed,
+      description,
+      diseases,
+      img,
+      inoculations,
+      parasites,
+      type
+    } = pet;
+
+    return `
+      <div class="pets-popup__wrapper">
+        <img
+          src="${img}"
+          alt="${name}"
+          class="pets-popup__image"
+        >
+        <div class="pets-popup__content">
+          <h3 class="pets-popup__title">
+            ${name}
+          </h3>
+          <h4 class="pets-popup__subtitle">
+            ${type} - ${breed}
+          </h4>
+          <p class="pets-popup__description">
+            ${description}
+          </p>
+          <ul class="pets-popup__list">
+            <li class="pets-popup__list-item">
+              <span class="pets-popup__item-title">Age: </span>
+              <span class="pets-popup__item-text">${age}</span>
+            </li>
+            <li class="pets-popup__list-item">
+              <span class="pets-popup__item-title">Inoculations: </span>
+              <span class="pets-popup__item-text">${inoculations.join(`, `)}</span>
+            </li>
+            <li class="pets-popup__list-item">
+              <span class="pets-popup__item-title">Diseases: </span>
+              <span class="pets-popup__item-text">${diseases.join(`, `)}</span>
+            </li>
+            <li class="pets-popup__list-item">
+              <span class="pets-popup__item-title">Parasites: </span>
+              <span class="pets-popup__item-text">${parasites.join(`, `)}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pets-popup__close-button button__navigation">
+        <img
+        class="pets-popup__close-button-img"
+        src="../../assets/images/cross.svg"
+        alt="croos close"
+        width="12"
+        height="12">
+      </div>
+    `
+  }
+
+  _setPopupHandler() {
+    this._sliderContainer.addEventListener(`click`, (evt) => {
+      if (evt.target.tagName === `BUTTON`) {
+        const currentPet = this._petsList.find((element) => {
+          return element.name === evt.target.dataset.name
+          });
+        this._petsPopupOverlay.classList.remove(`visually-hidden`);
+        this._petsPopup.innerHTML = this._getTemplatePopup(currentPet);
+
+        this._petsPopup.classList.add(`pets-popup__animation`);
+        // с таким блоком скролла связана проблемма с поддергивание контента из-за исчезновения полосы скролла.
+        this._body.classList.add(`not-scroll`);
+
+        console.log(evt.target.dataset.name)
+      }
+    });
+
+    this._petsPopupOverlay.addEventListener(`click`, (evt) => {
+      if (evt.target.className === `pets-popup__overlay` ||
+        evt.target.className === `pets-popup__close-button-img` ||
+        evt.target.className === `pets-popup__close-button button__navigation`
+      ) {
+        this._petsPopup.classList.remove(`pets-popup__animation`);
+        // длительность таймаута равна длительности css анимации
+        setTimeout(() => {
+          this._petsPopupOverlay.classList.add(`visually-hidden`)
+          this._body.classList.remove(`not-scroll`);
+        }, 300);
+      }
+
+    })
   }
 
 }

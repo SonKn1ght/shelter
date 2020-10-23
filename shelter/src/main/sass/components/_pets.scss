@@ -51,9 +51,12 @@
   text-align: center;
   background-color: $color-light-s;
   border-radius: 9px 9px 9px 9px;
+  transition: box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+
 
   &:hover {
     background-color: $color-light-xl;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   }
 
   @include media-tablet {
@@ -75,3 +78,4 @@
   padding: 0 0 0 0.2rem;
   color: $color-dark-l;
 }
+

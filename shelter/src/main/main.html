@@ -7,7 +7,7 @@
     <title>Shelter</title>
     <link href="../../pages/main/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="">
 
     <div style="display:none">
      <include src="shelter/assets/images/sprite.svg"></include>
@@ -115,31 +115,25 @@
             <div class="slider__slide-wrapper">
               <div class="slider__container">
                 <div class="pets__card">
-                  <img
-                    src="../../assets/images/katrine.png"
-                    alt="Cat katrine"
-                    class="pets__image"
-                  >
+                  <img src="../../assets/images/katrine.png" alt="Katrine" class="pets__image">
                   <h4 class="pets_pet-name">Katrine</h4>
-                  <button class="button button__secondary">Learn more</button>
+                  <button class="button button__secondary" data-name="Katrine">
+                    Learn more
+                  </button>
                 </div>
                 <div class="pets__card">
-                  <img
-                    src="../../assets/images/jennifer.png"
-                    alt="Dog jennifer"
-                    class="pets__image"
-                  >
+                  <img src="../../assets/images/jennifer.png" alt="Jennifer" class="pets__image">
                   <h4 class="pets_pet-name">Jennifer</h4>
-                  <button class="button button__secondary">Learn more</button>
+                  <button class="button button__secondary" data-name="Jennifer">
+                    Learn more
+                  </button>
                 </div>
                 <div class="pets__card">
-                  <img
-                    src="../../assets/images/woody.png"
-                    alt="Dog woody"
-                    class="pets__image"
-                  >
+                  <img src="../../assets/images/woody.png" alt="Woody" class="pets__image">
                   <h4 class="pets_pet-name">Woody</h4>
-                  <button class="button button__secondary">Learn more</button>
+                  <button class="button button__secondary" data-name="Woody">
+                    Learn more
+                  </button>
                 </div>
               </div>
             </div>
@@ -331,6 +325,13 @@
     </footer>
 
     <div class="modal-overlay"></div>
+
+    <div class="pets-popup__overlay visually-hidden">
+      <div class="pets-popup"></div>
+    </div>
+
+
+
 
     <script src="../../pages/main/script.js" charset="utf-8"></script>
   </body>

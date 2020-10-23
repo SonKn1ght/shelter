@@ -1,7 +1,7 @@
 import Slider from "./slider";
-import {getRandomPets} from "./mock";
+import {getRandomPets, pets} from "./mock";
 
-const slider = new Slider();
+const slider = new Slider(pets);
 slider.init();
 
 const headerPage = document.querySelector(`.header-page`);
@@ -10,13 +10,17 @@ const headerPageNavigation = headerPage.querySelector(`.header-page__navigation`
 const headerPageWrapper = headerPage.querySelector(`.header-page__wrapper`);
 const navigationLinkActive = headerPage.querySelector(`.navigation__item .navigation__link_active`);
 
+const body = document.querySelector(`body`);
+
 const modalOverlay = document.querySelector(`.modal-overlay`);
 
 const switchMenu = () => {
+  body.classList.toggle(`not-scroll`);
   hamburger.classList.toggle(`hamburger_rotate`);
   modalOverlay.classList.toggle(`modal-show`);
   headerPageWrapper.classList.toggle(`header-page__wrapper_mobile-active`);
-  headerPageNavigation.classList.toggle(`header-page__navigation_show`)
+  headerPageNavigation.classList.toggle(`header-page__navigation_show`);
+
 }
 
 hamburger.addEventListener('click', () => {
