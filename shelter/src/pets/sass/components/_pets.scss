@@ -43,7 +43,6 @@
 
 .pets__image {
   margin: 0 0 2.8rem 0;
-
 }
 
 .pets_pet-name {
@@ -57,6 +56,15 @@
   flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 3rem;
+  width: 1200px;
   padding: 0 0 1.5rem 0;
   margin: 0 0 4.4rem 0;
+
+  @include media-tablet {
+    width: 580px;
+  }
+
+  @include media-mobile {
+    width: 270px;
+  }
 }

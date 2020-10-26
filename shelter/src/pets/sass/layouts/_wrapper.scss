@@ -1,8 +1,15 @@
 .wrapper {
-  //width: 62.5vw;
   display: flex;
   justify-content: space-between;
   max-width: 128rem;
   padding: 0 4rem;
   margin: 0 auto;
+
+  @include media-tablet {
+    padding: 0 3rem;
+  }
+
+  @include media-mobile {
+    padding: 0 1rem;
+  }
 }
