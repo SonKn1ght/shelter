@@ -20,35 +20,32 @@ export default class Slider {
   init() {
     this._setHandlers();
     this._setPopupHandler();
+    this._setStartTerms();
+  }
 
-    // первые три слайда размеченными лежат в htmle
+  _setStartTerms() {
+    if (this._body.offsetWidth >= 1280) {
+      this._devicePointer = `desktop`;
+    }
+
+    if (this._body.offsetWidth < 1280 && this._body.offsetWidth >= 768) {
+      this._devicePointer = `tablet`;
+    }
+
+    if (this._body.offsetWidth < 768) {
+      this._devicePointer = `mobile`;
+    }
   }
 
   _setHandlers() {
+    this._widthWindowHandler();
     this._sliderButtonLeft.addEventListener(`click`, () => {
-      if (this._isEnable) {
-        this._sliderContainer.classList.add(`slider__container_hide`);
-        setTimeout(() => {
-          this._sliderContainer.innerHTML = this._getTemplateSlide();
-          this._sliderContainer.classList.remove(`slider__container_hide`)
-        }, 500);
-      }
+      this._changeSlide();
     })
 
     this._sliderButtonRight.addEventListener(`click`, () => {
-      if (this._isEnable) {
-        this._sliderContainer.classList.add(`slider__container_hide`);
-        setTimeout(() => {
-          this._sliderContainer.innerHTML = this._getTemplateSlide();
-          this._sliderContainer.classList.remove(`slider__container_hide`)
-        }, 500);
-
-      }
+      this._changeSlide();
     })
-  }
-
-  _clearContainer() {
-    this._sliderContainer.innerHTML = ``;
   }
 
   _getTemplateSlide() {
@@ -73,7 +70,7 @@ export default class Slider {
   // проходим по массиву выдаем нужную разметку строкой для её передачи в отрисовку
     return this._pets.reduce((acc, current) => {
       return acc + `
-      <div class="pets__card">
+      <div class="pets__card" data-name="${current.name}">
         <img
           src="${current.img}"
           alt="${current.name}"
@@ -82,7 +79,6 @@ export default class Slider {
         <h4 class="pets_pet-name">${current.name}</h4>
         <button
         class="button button__secondary"
-        data-name="${current.name}"
         >
           Learn more
         </button>
@@ -154,19 +150,23 @@ export default class Slider {
 
   _setPopupHandler() {
     this._sliderContainer.addEventListener(`click`, (evt) => {
-      if (evt.target.tagName === `BUTTON`) {
-        const currentPet = this._petsList.find((element) => {
-          return element.name === evt.target.dataset.name
+        this._isEnable = false;
+        if (evt.target.className === 'pets__image' ||
+          evt.target.className === 'pets__card' ||
+          evt.target.className === 'pets_pet-name' ||
+          evt.target.className === 'button button__secondary') {
+
+          const currentPet = this._petsList.find((element) => {
+            return element.name === evt.target.closest('div').dataset.name
           });
-        this._petsPopupOverlay.classList.remove(`visually-hidden`);
-        this._petsPopup.innerHTML = this._getTemplatePopup(currentPet);
+          this._petsPopupOverlay.classList.remove(`visually-hidden`);
 
-        this._petsPopup.classList.add(`pets-popup__animation`);
-        // с таким блоком скролла связана проблемма с поддергивание контента из-за исчезновения полосы скролла.
-        this._body.classList.add(`not-scroll`);
+          this._petsPopup.innerHTML = this._getTemplatePopup(currentPet);
 
-        console.log(evt.target.dataset.name)
-      }
+          this._petsPopup.classList.add(`pets-popup__animation`);
+
+          this._body.classList.add(`not-scroll`);
+        }
     });
 
     this._petsPopupOverlay.addEventListener(`click`, (evt) => {
@@ -175,7 +175,7 @@ export default class Slider {
         evt.target.className === `pets-popup__close-button button__navigation`
       ) {
         this._petsPopup.classList.remove(`pets-popup__animation`);
-        // длительность таймаута равна длительности css анимации
+
         setTimeout(() => {
           this._petsPopupOverlay.classList.add(`visually-hidden`)
           this._body.classList.remove(`not-scroll`);
@@ -185,4 +185,39 @@ export default class Slider {
     })
   }
 
+  _widthWindowHandler() {
+    window.addEventListener('resize',() => {
+
+      if (this._body.offsetWidth >= 1280) {
+        if (this._devicePointer !== `desktop`) {
+          this._devicePointer = `desktop`;
+          this._changeSlide();
+        }
+      }
+
+      if (this._body.offsetWidth < 1280 && this._body.offsetWidth >= 768) {
+        if (this._devicePointer !== `tablet`) {
+          this._devicePointer = `tablet`;
+          this._changeSlide();
+        }
+      }
+
+      if (this._body.offsetWidth < 768) {
+        if (this._devicePointer !== `mobile`) {
+          this._devicePointer = `mobile`;
+          this._changeSlide();
+        }
+      }
+
+    });
+  }
+
+  _changeSlide() {
+      this._sliderContainer.classList.add(`slider__container_hide`);
+      setTimeout(() => {
+        this._sliderContainer.innerHTML = this._getTemplateSlide();
+        this._sliderContainer.classList.remove(`slider__container_hide`)
+      }, 500);
+
+  }
 }

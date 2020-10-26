@@ -228,7 +228,7 @@ export default class Pagination {
         this._petsPopup.innerHTML = this._getTemplatePopup(currentPet);
 
         this._petsPopup.classList.add(`pets-popup__animation`);
-        // с таким блоком скролла связана проблемма с поддергивание контента из-за исчезновения полосы скролла.
+
         this._body.classList.add(`not-scroll`);
       }
     });
@@ -239,7 +239,7 @@ export default class Pagination {
         evt.target.className === `pets-popup__close-button button__navigation`
       ) {
         this._petsPopup.classList.remove(`pets-popup__animation`);
-        // длительность таймаута равна длительности css анимации
+
         setTimeout(() => {
           this._petsPopupOverlay.classList.add(`visually-hidden`)
           this._body.classList.remove(`not-scroll`);

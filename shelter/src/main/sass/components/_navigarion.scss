@@ -40,9 +40,8 @@
 .navigation__link_active {
   position: relative;
   color: $color-light-s;
-  pointer-events: none;
+
   @include media-mobile {
-    pointer-events: auto;
     display: block;
     min-height: 5.4rem;
   }
@@ -62,4 +61,8 @@
   @include media-mobile {
     bottom: 0.1rem;
   }
+}
+
+.navigation__link_inactive {
+  pointer-events: none;
 }
