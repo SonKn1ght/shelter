@@ -1,18 +1,16 @@
 import Pagination from "./pagination";
-import {pets} from "./mock";
+import {petsList} from "./mock";
 
-// const pagination = new Pagination(pets);
-// pagination.init();
+const pagination = new Pagination(petsList);
+pagination.init();
 
-const headerPage = document.querySelector(`.header-page`);
+const body = document.querySelector(`body`);
+const headerPage = body.querySelector(`.header-page`);
 const hamburger = headerPage.querySelector(`.header__hamburger`);
 const headerPageNavigation = headerPage.querySelector(`.header-page__navigation`);
 const headerPageWrapper = headerPage.querySelector(`.header-page__wrapper`);
 const navigationLinkActive = headerPage.querySelector(`.navigation__item .navigation__link_active`);
-
-const body = document.querySelector(`body`);
-
-const modalOverlay = document.querySelector(`.modal-overlay`);
+const modalOverlay = body.querySelector(`.modal-overlay`);
 
 const switchMenu = () => {
   body.classList.toggle(`not-scroll`);
