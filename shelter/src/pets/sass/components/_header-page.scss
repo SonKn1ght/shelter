@@ -11,16 +11,9 @@
   }
 }
 
-.header-page__mobile-show-menu {
-  width: 320px;
-  margin-left: auto;
-}
-
-
-
 .header-page__wrapper {
   @include media-mobile {
-    flex-wrap: wrap;
+    display: flex;
     justify-content: flex-end;
     align-content: flex-start;
   }
@@ -28,8 +21,20 @@
 
 .header-page__wrapper_mobile-active {
   width: 320px;
-
   margin: 0 0 0 auto;
+}
+
+.header-page__mobile-show-menu {
+  width: 320px;
+  margin: 0 0 0 auto;
+}
+
+
+
+
+
+.header-page__link {
+  text-decoration: none;
 }
 
 .header-page__logo {
@@ -100,7 +105,6 @@
 }
 
 .header-page__navigation_show {
-
   right: 0;
   width: 320px;
 }

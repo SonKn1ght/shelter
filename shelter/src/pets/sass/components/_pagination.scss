@@ -5,11 +5,19 @@
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   list-style: none;
+
+  @include media-mobile {
+    width: 30rem;
+  }
 }
 
 .pagination__item {
   @extend .button__navigation;
   display: flex;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .pagination__item_active {

@@ -76,11 +76,11 @@ var gulp = require('gulp'),
     return gulp.src('src/pets/sass/style.scss')
       .pipe(gp.sourcemaps.init())
       .pipe(gp.sass({}))
-      // .pipe(gp.autoprefixer(
-      //   ['last 15 versions', '> 5%'],
-      //   {
-      //     cascade: true
-      //   }))
+      .pipe(gp.autoprefixer(
+        ['last 15 versions', '> 5%'],
+        {
+          cascade: true
+        }))
       .on("error", gp.notify.onError({
         title: "stile"
       }))

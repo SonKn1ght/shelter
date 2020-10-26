@@ -1,0 +1,19 @@
+@keyframes rotateOn90deg {
+  0% {
+    transform: rotate(0deg); /*Поворот на 30 градусов против часовой стрелки*/
+  }
+  //50%{
+  //  transform: rotate(45deg); /*Поворот на 30 градусов по часовой стрелке*/
+  //}
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+
+@keyframes wayyy {
+  0% {transform: scaleX(0.3);}
+  100% {transform: scaleX(1);}
+}
+
+

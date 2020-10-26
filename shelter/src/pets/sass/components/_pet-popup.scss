@@ -1,0 +1,212 @@
+.pets-popup__overlay {
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-overlay;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+
+
+.pets-popup {
+  position: relative;
+  z-index: 20;
+
+  width: 900px;
+  background-color: transparent;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+  transform: scale(0);
+
+  @include media-tablet {
+    width: 630px;
+  }
+
+  @include media-mobile {
+    width: 240px;
+  }
+}
+
+.pets-popup__animation {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.pets-popup__wrapper {
+  background-color: white;
+
+  width: 900px;
+  display: flex;
+
+  border-radius: 9px;
+  overflow: hidden;
+
+  @include media-tablet {
+    width: 630px;
+  }
+
+  @include media-mobile {
+    width: 240px;
+  }
+}
+
+.pets-popup__image {
+  display: block;
+  width: 500px;
+  height: 500px;
+  border-radius: 0;
+
+  @include media-tablet {
+    width: 350px;
+    height: 350px;
+  }
+
+  @include media-mobile {
+    display: none;
+  }
+}
+
+.pets-popup__content {
+  width: 400px;
+  padding: 50px 20px 10px 29px;
+
+  @include media-tablet {
+    width: 280px;
+    padding: 10px 8px 10px 11px;
+  }
+
+  @include media-mobile {
+    width: 100%;
+    padding: 10px 10px 5px;
+  }
+}
+
+.pets-popup__title {
+  margin: 0 0 10px 0;
+
+  @include media-tablet {
+
+  }
+
+  @include media-mobile {
+    text-align: center;
+    @include font($size: 3.5rem, $height: 4.5rem, $spacing: 0.06em);
+  }
+}
+
+.pets-popup__subtitle {
+  margin: 0 0 40px 0;
+
+  @include media-tablet {
+    margin: 0 0 20px 0;
+  }
+
+  @include media-mobile {
+    text-align: center;
+  }
+}
+
+.pets-popup__description {
+  margin: 0 0 40px 0;
+
+  font-family: 'Georgia', Verdana, sans-serif;
+  @include font($size: 1.5rem, $height: 1.7rem, $spacing: 0.06em);
+
+  @include media-tablet {
+    margin: 0 0 20px 0;
+
+    @include font($size: 1.3rem, $height: 1.4rem, $spacing: 0.06em);
+  }
+
+  @include media-mobile {
+    margin: 0 0 24px 0;
+    text-align: justify;
+  }
+
+}
+
+.pets-popup__list {
+  padding: 0 0 0 14px;
+  margin-bottom: 0;
+  list-style-type: disc;
+
+  @include media-tablet {
+
+  }
+
+  @include media-mobile {
+
+  }
+}
+
+.pets-popup__list-item {
+  margin: 0 0 10px 0;
+  color: $color-primary;
+  @include font($size: 1.5rem, $height: 1.7rem, $spacing: 0.06em);
+
+  @include media-tablet {
+    margin: 0 0 6px 0;
+  }
+
+  @include media-mobile {
+
+  }
+}
+
+.pets-popup__item-title {
+  color: #000000;
+  font-weight: 700;
+}
+
+.pets-popup__item-text {
+  color: #000000;
+}
+
+.pets-popup__close-button {
+  position: absolute;
+  top: -52px;
+  right: -42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include media-tablet {
+
+  }
+
+  @include media-mobile {
+    right: -30px;
+  }
+
+}
+
+//странный кусок чтобы подсвечивалась кнопка и по наведению на оверлэй
+
+.pets-popup__overlay:hover .pets-popup__close-button {
+  border: none;
+  background: $color-primary-light;
+  cursor: pointer;
+}
+
+.pets-popup__overlay:hover .pets-popup__close-button:hover {
+  border: none;
+  background: $color-primary-light;
+  cursor: pointer;
+}
+
+.pets-popup:hover .pets-popup__close-button {
+  background-color: transparent;
+  border: 2px solid $color-primary;
+}
+
+
+
